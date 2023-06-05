@@ -6,6 +6,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book_new = Book.new
     @book_comment = BookComment.new
+
   end
 
   def index
@@ -55,6 +56,10 @@ class BooksController < ApplicationController
     unless @book.user == current_user
       redirect_to books_path
     end
+  end
+  
+  def book_comment_params
+    params.require(:book_comment).permit(:comment)
   end
   
 end
