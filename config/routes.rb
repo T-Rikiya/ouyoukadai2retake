@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     
   end
   resources :users, only: [:index,:show,:edit,:update]
+    resource :relationships, only: [:create, :destroy]
+    # get 'followed_users' => 'relationships#followed_users', as: 'followed_users'
+    # get 'follower_users' => 'relationships#follower_users', as: 'follower_users'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
